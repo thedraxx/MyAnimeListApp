@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import React, {useEffect, useState} from 'react';
-import {ActivityIndicator} from 'react-native';
+import {ActivityIndicator, ScrollView} from 'react-native';
 import animeAPI from '../../api/animeAPI';
 import CardDetail from '../../components/CardDetail/CardDetail';
 import {AnimeDetail, Data} from '../../interfaces/AnimeDetail';
@@ -27,13 +27,13 @@ const Detail = ({route}: Props) => {
   };
 
   return (
-    <>
+    <ScrollView>
       {animeDetails ? (
         <CardDetail animeDetails={animeDetails} />
       ) : (
         <ActivityIndicator size={50} color="#1c439b" />
       )}
-    </>
+    </ScrollView>
   );
 };
 
