@@ -11,9 +11,9 @@ export const ScrollCard = styled.ScrollView`
 `;
 
 export const ImageDetailCard = styled.Image`
-  width: 70%;
+  width: 90%;
   height: 500px;
-  border-radius: 20px;
+  border-radius: 10px;
 `;
 
 export const ContainerImage = styled.View`
@@ -27,21 +27,45 @@ export const ContainerImage = styled.View`
 
 export const ContainerInfoCard = styled.View`
   flex: 1;
-  top: 100px;
+  top: 15px;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 2px;
 `;
 
 export const TextTitle = styled.Text`
-  font-size: 20px;
+  font-size: 35px;
+  font-weight: bold;
+  color: ${(props: any = {}) =>
+    props.isInDarkMode === '#fff' ? '#3C4048' : '#fff'};
 `;
 
 export const TextSubTitle = styled.Text`
-  font-size: 12px;
+  font-size: 14px;
+  margin-top: 5px;
+  color: ${(props: any = {}) =>
+    props.isInDarkMode === '#fff' ? '#3C4048' : '#fff'};
 `;
 
 export const TextEpisodes = styled.Text`
-  font-size: 12px;
+  font-size: 15px;
+  margin-top: 5px;
+  color: ${(props: any = {}) =>
+    props.isInDarkMode === '#fff' ? '#3C4048' : '#fff'};
+`;
+
+export const ContainerScore = styled.View`
+  margin-top: 10px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const TextSinopsis = styled.Text`
+  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: 55px;
+  color: ${(props: any = {}) =>
+    props.isInDarkMode === '#fff' ? '#3C4048' : '#fff'};
 `;
