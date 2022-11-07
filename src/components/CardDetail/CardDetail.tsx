@@ -16,6 +16,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import {getImageColor} from '../../helpers/getColors';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import {ToggleContext} from '../../context/toggleContext';
+import BackButton from '../BackButton/BackButton';
 interface Props {
   animeDetails: Data;
 }
@@ -53,6 +54,7 @@ const CardDetail = ({animeDetails}: Props) => {
   };
   return (
     <ContainerDetailCard>
+      <BackButton />
       <LinearGradient
         colors={[colors.primary, colors.secondary, isInDarkMode]}
         style={styles.linearGradient}>
