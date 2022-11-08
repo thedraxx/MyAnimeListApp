@@ -4,7 +4,7 @@ import animeAPI from '../../api/animeAPI';
 import Cards from '../../components/Card/Card';
 import {ToggleContext} from '../../context/toggleContext';
 import {Animes} from '../../interfaces/AnimesInterfaces';
-import {ContainerGeneral, ContainerScroll} from './Style';
+import {ContainerGeneral, ContainerScroll, Loading} from './Style';
 
 const Home = () => {
   const [anime, setAnime] = useState<Animes>();
@@ -27,7 +27,7 @@ const Home = () => {
     <ContainerGeneral state={state}>
       <ContainerScroll>
         {!anime ? (
-          <ActivityIndicator size={50} color="#1c439b" />
+          <Loading size={50} color="#1c439b" />
         ) : (
           <FlatList
             data={anime?.data}

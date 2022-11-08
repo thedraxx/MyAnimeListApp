@@ -64,8 +64,38 @@ export const ContainerScore = styled.View`
 
 export const TextSinopsis = styled.Text`
   font-size: 15px;
-  margin-top: 10px;
-  margin-bottom: 55px;
+  margin-top: 15px;
+  margin-bottom: 15px;
   color: ${(props: any = {}) =>
     props.isInDarkMode === '#fff' ? '#3C4048' : '#fff'};
+`;
+
+export const ContainerGenre = styled.View`
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 5px;
+`;
+
+export const TextGenre = styled.Text`
+  font-size: 12px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+`;
+
+export const ContainerGenreText = styled.View`
+  padding: 13px;
+  background-color: #1c439b;
+  border-radius: 50px;
+  margin-left: 5px;
+  margin-right: 5px;
+`;
+
+export const ContainerAnimeLikeThis = styled.View`
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-bottom: 20px;
 `;

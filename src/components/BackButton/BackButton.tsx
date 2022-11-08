@@ -1,5 +1,5 @@
 import React from 'react';
-import {ButtonText, ContainerButton, TouchableButton} from './Style';
+import {ContainerButton, TouchableButton} from './Style';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 

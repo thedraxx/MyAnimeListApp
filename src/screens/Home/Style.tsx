@@ -10,3 +10,9 @@ export const ContainerGeneral = styled.View`
   background-color: ${(props: {state: {isDarkMode: boolean}}) =>
     props.state.isDarkMode ? '#181818' : '#fff'};
 `;
+
+export const Loading = styled.ActivityIndicator`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;

@@ -1,13 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect, useState, useContext} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, ActivityIndicator} from 'react-native';
 import {Data} from '../../interfaces/AnimeDetail';
 import {
+  ContainerAnimeLikeThis,
   ContainerDetailCard,
+  ContainerGenre,
+  ContainerGenreText,
   ContainerInfoCard,
   ContainerScore,
   ImageDetailCard,
   TextEpisodes,
+  TextGenre,
   TextSinopsis,
   TextSubTitle,
   TextTitle,
@@ -17,6 +21,7 @@ import {getImageColor} from '../../helpers/getColors';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import {ToggleContext} from '../../context/toggleContext';
 import BackButton from '../BackButton/BackButton';
+import AnimeLikeThis from '../AnimeLikeThis/AnimeLikeThis';
 interface Props {
   animeDetails: Data;
 }
@@ -72,7 +77,6 @@ const CardDetail = ({animeDetails}: Props) => {
           <TextSubTitle isInDarkMode={isInDarkMode}>
             {animeDetails.title_japanese}
           </TextSubTitle>
-
           <TextEpisodes isInDarkMode={isInDarkMode}>
             Episodes: {animeDetails.episodes}
           </TextEpisodes>
@@ -92,6 +96,21 @@ const CardDetail = ({animeDetails}: Props) => {
           <TextSinopsis isInDarkMode={isInDarkMode}>
             {animeDetails.synopsis}
           </TextSinopsis>
+          <ContainerGenre>
+            {animeDetails.genres.map(genre => (
+              <ContainerGenreText key={genre.mal_id}>
+                <TextGenre>{genre.name}</TextGenre>
+              </ContainerGenreText>
+            ))}
+          </ContainerGenre>
+          <ContainerAnimeLikeThis>
+            {/* Recomendations */}
+            {!animeDetails ? (
+              <ActivityIndicator />
+            ) : (
+              <AnimeLikeThis animeDetails={animeDetails} />
+            )}
+          </ContainerAnimeLikeThis>
         </ContainerInfoCard>
       </LinearGradient>
     </ContainerDetailCard>
