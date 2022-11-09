@@ -22,4 +22,5 @@ export const TitleText = styled.Text`
   font-weight: bold;
   margin-top: 20px;
   margin-left: 10px;
+  color: ${(props: {isInDarkMode: string}) => props.isInDarkMode};
 `;

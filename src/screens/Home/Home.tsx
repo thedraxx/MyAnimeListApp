@@ -1,34 +1,29 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {ActivityIndicator, FlatList, Text} from 'react-native';
-import animeAPI from '../../api/animeAPI';
+import {FlatList} from 'react-native';
 import Banner from '../../components/Banner/Banner';
 import Cards from '../../components/Card/Card';
 import Tops from '../../components/Tops/Tops';
 import {ToggleContext} from '../../context/toggleContext';
+import {getAnimes} from '../../helpers/getAnimes';
 import {Animes} from '../../interfaces/AnimesInterfaces';
 import {ContainerGeneral, ContainerScroll, Loading, TitleText} from './Style';
 
 const Home = () => {
   const [anime, setAnime] = useState<Animes>();
   const {...state} = useContext(ToggleContext);
+  const isInDarkMode = state.isDarkMode ? '#fff' : '#000';
 
   useEffect(() => {
-    getAnimes();
+    const animes = getAnimes();
+    animes.then(res => {
+      setAnime(res);
+    });
   }, []);
-
-  const getAnimes = async () => {
-    try {
-      const resp = await animeAPI.get('anime/');
-      setAnime(resp.data);
-    } catch (error) {
-      console.log({error});
-    }
-  };
 
   return (
     <ContainerGeneral state={state}>
       <Banner />
-      <TitleText>Iconics</TitleText>
+      <TitleText isInDarkMode={isInDarkMode}>Iconics</TitleText>
       <ContainerScroll>
         {!anime ? (
           <Loading size={50} color="#1c439b" />
@@ -42,9 +37,9 @@ const Home = () => {
           />
         )}
       </ContainerScroll>
-      <TitleText>Top</TitleText>
+      <TitleText isInDarkMode={isInDarkMode}>Top</TitleText>
       <Tops />
-      <TitleText>Upcoming</TitleText>
+      <TitleText isInDarkMode={isInDarkMode}>Upcoming</TitleText>
     </ContainerGeneral>
   );
 };
