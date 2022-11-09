@@ -1,10 +1,12 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {ActivityIndicator, FlatList} from 'react-native';
+import {ActivityIndicator, FlatList, Text} from 'react-native';
 import animeAPI from '../../api/animeAPI';
+import Banner from '../../components/Banner/Banner';
 import Cards from '../../components/Card/Card';
+import Tops from '../../components/Tops/Tops';
 import {ToggleContext} from '../../context/toggleContext';
 import {Animes} from '../../interfaces/AnimesInterfaces';
-import {ContainerGeneral, ContainerScroll, Loading} from './Style';
+import {ContainerGeneral, ContainerScroll, Loading, TitleText} from './Style';
 
 const Home = () => {
   const [anime, setAnime] = useState<Animes>();
@@ -25,6 +27,8 @@ const Home = () => {
 
   return (
     <ContainerGeneral state={state}>
+      <Banner />
+      <TitleText>Iconics</TitleText>
       <ContainerScroll>
         {!anime ? (
           <Loading size={50} color="#1c439b" />
@@ -38,6 +42,9 @@ const Home = () => {
           />
         )}
       </ContainerScroll>
+      <TitleText>Top</TitleText>
+      <Tops />
+      <TitleText>Upcoming</TitleText>
     </ContainerGeneral>
   );
 };

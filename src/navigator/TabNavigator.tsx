@@ -37,7 +37,7 @@ const TabNavigator = () => {
           if (route.name === 'Favs') {
             return (
               <Icon
-                name="star"
+                name="heart"
                 size={20}
                 color={`${state.isDarkMode ? '#fff' : '#000'}`}
               />

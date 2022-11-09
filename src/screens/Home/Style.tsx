@@ -16,3 +16,10 @@ export const Loading = styled.ActivityIndicator`
   justify-content: center;
   align-items: center;
 `;
+
+export const TitleText = styled.Text`
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-left: 10px;
+`;

@@ -9,5 +9,5 @@ export const ContainerImage = styled.View`
 
 export const CardCustom = styled.Image`
   flex: 1;
-  border-radius: 10px;
+  border-radius: 15px;
 `;

@@ -1,18 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {
-  View,
-  ActivityIndicator,
-  FlatList,
-  Image,
-  Touchable,
-  TouchableOpacity,
-} from 'react-native';
+import {ActivityIndicator, FlatList, TouchableOpacity} from 'react-native';
 import animeAPI from '../../api/animeAPI';
 import {Data} from '../../interfaces/AnimeDetail';
 import {AnimeRecomends} from '../../interfaces/AnimeRecomnds';
 import {ContainerImage} from './Style';
 import {useNavigation} from '@react-navigation/native';
-
 interface Props {
   animeDetails: Data;
 }
@@ -23,7 +15,7 @@ const AnimeLikeThis = ({animeDetails}: Props) => {
 
   useEffect(() => {
     GetRecomendsAnime(animeDetails.mal_id);
-  }, []);
+  }, [animeDetails]);
 
   const GetRecomendsAnime = async (id: number) => {
     try {

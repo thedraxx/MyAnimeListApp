@@ -22,6 +22,8 @@ import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import {ToggleContext} from '../../context/toggleContext';
 import BackButton from '../BackButton/BackButton';
 import AnimeLikeThis from '../AnimeLikeThis/AnimeLikeThis';
+import AddFabButton from '../AddFabButton/AddFabButton';
+
 interface Props {
   animeDetails: Data;
 }
@@ -60,6 +62,7 @@ const CardDetail = ({animeDetails}: Props) => {
   return (
     <ContainerDetailCard>
       <BackButton />
+      <AddFabButton />
       <LinearGradient
         colors={[colors.primary, colors.secondary, isInDarkMode]}
         style={styles.linearGradient}>
@@ -93,6 +96,7 @@ const CardDetail = ({animeDetails}: Props) => {
               );
             })}
           </ContainerScore>
+
           <TextSinopsis isInDarkMode={isInDarkMode}>
             {animeDetails.synopsis}
           </TextSinopsis>
@@ -103,6 +107,7 @@ const CardDetail = ({animeDetails}: Props) => {
               </ContainerGenreText>
             ))}
           </ContainerGenre>
+
           <ContainerAnimeLikeThis>
             {/* Recomendations */}
             {!animeDetails ? (

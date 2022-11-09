@@ -1,8 +1,8 @@
 import styled from 'styled-components/native';
 
-export const ContainerButton = styled.View`
+export const ContainerButtonFab = styled.View`
   position: absolute;
-  left: 0;
+  right: 0;
   z-index: 1;
   margin-top: 5px;
 `;
