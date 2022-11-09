@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect, useState, useContext} from 'react';
 import {StyleSheet, View, ActivityIndicator} from 'react-native';
 import {Data} from '../../interfaces/AnimeDetail';
@@ -17,13 +16,12 @@ import {
   TextTitle,
 } from './Style';
 import LinearGradient from 'react-native-linear-gradient';
-import {getImageColor} from '../../helpers/getColors';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import {ToggleContext} from '../../context/toggleContext';
 import BackButton from '../BackButton/BackButton';
 import AnimeLikeThis from '../AnimeLikeThis/AnimeLikeThis';
 import AddFabButton from '../AddFabButton/AddFabButton';
-
+import {callGetColors} from '../../helpers/callGetColors';
 interface Props {
   animeDetails: Data;
 }
@@ -39,30 +37,24 @@ const CardDetail = ({animeDetails}: Props) => {
     secondary: 'transparent',
   });
   const {...state} = useContext(ToggleContext);
-
   const isInDarkMode = state.isDarkMode ? '#000' : '#fff';
 
-  let arrayScore = [];
+  let arrayScore: number[] = [];
   for (let i = 0; i < animeDetails.score; i++) {
     arrayScore.push(i);
   }
 
   useEffect(() => {
-    callGetColors(animeDetails.images.webp.large_image_url);
+    const color = callGetColors(animeDetails.images.webp.large_image_url);
+    color.then(res => {
+      setColors(res);
+    });
   }, [animeDetails]);
 
-  const callGetColors = async (uri: string) => {
-    const [primary, secondary] = await getImageColor(uri);
-    if (primary && secondary) {
-      setColors({primary, secondary});
-    } else {
-      setColors({primary: 'transparent', secondary: 'transparent'});
-    }
-  };
   return (
     <ContainerDetailCard>
       <BackButton />
-      <AddFabButton />
+      <AddFabButton animeDetails={animeDetails} />
       <LinearGradient
         colors={[colors.primary, colors.secondary, isInDarkMode]}
         style={styles.linearGradient}>
