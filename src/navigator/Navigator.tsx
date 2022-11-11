@@ -3,6 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from '../screens/Home/Home';
 import Detail from '../screens/Detail/Detail';
 import {Datum} from '../interfaces/AnimesInterfaces';
+import {Data} from '../interfaces/AnimeDetail';
 
 export type RootStackParams = {
   Home: undefined;

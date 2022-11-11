@@ -1,15 +1,19 @@
 import React, {useContext} from 'react';
-import {Text, View} from 'react-native';
+import {FlatList, View} from 'react-native';
+import CardsFavs from '../../components/CardsFavs/CardsFavs';
 import {AnimeFavsContext} from '../../context/AnimesFavsContext';
 
 const Favs = () => {
   const {animeFavsState} = useContext(AnimeFavsContext);
-  console.log(animeFavsState);
 
   return (
     <View>
-      <Text>Favs</Text>
-      {/* LLamar a favoriteList */}
+      <FlatList
+        data={animeFavsState.animeFavsState}
+        keyExtractor={item => item.mal_id.toString()}
+        numColumns={2}
+        renderItem={({item}) => <CardsFavs animes={item} />}
+      />
     </View>
   );
 };
