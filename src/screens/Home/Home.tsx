@@ -11,6 +11,7 @@ import {ContainerGeneral, ContainerScroll, Loading, TitleText} from './Style';
 const Home = () => {
   const [anime, setAnime] = useState<Animes>();
   const {...state} = useContext(ToggleContext);
+
   const isInDarkMode = state.isDarkMode ? '#fff' : '#000';
 
   useEffect(() => {
