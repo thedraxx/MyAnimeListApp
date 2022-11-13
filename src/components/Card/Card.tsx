@@ -10,7 +10,7 @@ export interface Props {
   width?: number;
 }
 
-const Cards = ({animes, height = 420, width = 300}: Props) => {
+const Cards = ({animes, height = 320, width = 200}: Props) => {
   const navigation = useNavigation();
 
   return (

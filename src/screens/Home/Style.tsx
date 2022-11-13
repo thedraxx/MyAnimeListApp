@@ -2,7 +2,6 @@ import styled from 'styled-components/native';
 
 export const ContainerScroll = styled.View`
   flex: 1;
-  top: 15px;
 `;
 
 export const ContainerGeneral = styled.View`
@@ -18,9 +17,20 @@ export const Loading = styled.ActivityIndicator`
 `;
 
 export const TitleText = styled.Text`
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-left: 10px;
   color: ${(props: {isInDarkMode: string}) => props.isInDarkMode};
+`;
+
+export const ScrollViewContainer = styled.ScrollView`
+  flex: 1;
+`;
+
+export const ContainerBanner = styled.View`
+  flex: 1;
+  height: 300px;
+  width: 100%;
+  background-color: red;
 `;
