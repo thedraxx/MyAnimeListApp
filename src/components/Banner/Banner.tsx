@@ -1,4 +1,6 @@
+import {useNavigation} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
+import {TouchableOpacity} from 'react-native';
 import {getAnimeBanner} from '../../helpers/getAnimeBanner';
 import {AnimeDetail} from '../../interfaces/AnimeDetail';
 import {
@@ -12,7 +14,7 @@ import {
 
 const Banner = () => {
   const [animeBanner, setAnimeBanner] = useState<AnimeDetail>();
-
+  const navigation = useNavigation();
   useEffect(() => {
     const id = Math.floor(Math.random() * 1000);
     const animes = getAnimeBanner(id);
@@ -22,20 +24,28 @@ const Banner = () => {
   }, []);
 
   return (
-    <SuperContainer>
-      <ContainerImageBanner>
-        <ImageBanner
-          source={{uri: animeBanner?.data.images.jpg.large_image_url}}
-        />
-      </ContainerImageBanner>
+    <>
+      {!animeBanner ? null : (
+        <SuperContainer>
+          <ContainerImageBanner>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Detail', animeBanner.data)}
+              activeOpacity={0.8}>
+              <ImageBanner
+                source={{uri: animeBanner?.data.images.jpg.large_image_url}}
+              />
+            </TouchableOpacity>
+          </ContainerImageBanner>
 
-      <ContainerInfoBanner>
-        <TitleBanner>{animeBanner?.data.title}</TitleBanner>
-        <SubTitleBanner>
-          {animeBanner?.data.synopsis.substring(0, 180)}...
-        </SubTitleBanner>
-      </ContainerInfoBanner>
-    </SuperContainer>
+          <ContainerInfoBanner>
+            <TitleBanner>{animeBanner?.data.title}</TitleBanner>
+            <SubTitleBanner>
+              {animeBanner?.data.synopsis.substring(0, 180)}...
+            </SubTitleBanner>
+          </ContainerInfoBanner>
+        </SuperContainer>
+      )}
+    </>
   );
 };
 

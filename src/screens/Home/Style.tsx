@@ -26,11 +26,12 @@ export const TitleText = styled.Text`
 
 export const ScrollViewContainer = styled.ScrollView`
   flex: 1;
+  background-color: ${(props: {isInDarkMode: boolean}) =>
+    props.isInDarkMode ? '#181818' : '#fff'};
 `;
 
 export const ContainerBanner = styled.View`
   flex: 1;
   height: 300px;
   width: 100%;
-  background-color: red;
 `;

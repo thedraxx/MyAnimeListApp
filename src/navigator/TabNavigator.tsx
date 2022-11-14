@@ -4,6 +4,7 @@ import Favs from '../screens/Favs/Favs';
 import Navigator from './Navigator';
 import {ToggleContext} from '../context/toggleContext';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Search from '../screens/Search/Search';
 
 export type RootStackParams = {
   Home: undefined;
@@ -43,12 +44,28 @@ const TabNavigator = () => {
               />
             );
           }
+          if (route.name === 'Search') {
+            return (
+              <Icon
+                name="search"
+                size={20}
+                color={`${state.isDarkMode ? '#fff' : '#000'}`}
+              />
+            );
+          }
         },
       })}>
       <Tab.Screen
         name="Navigator"
         options={{title: 'Home'}}
         component={Navigator}
+      />
+      <Tab.Screen
+        name="Search"
+        options={{
+          title: 'Search',
+        }}
+        component={Search}
       />
       <Tab.Screen
         name="Favs"

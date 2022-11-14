@@ -30,7 +30,7 @@ const Home = () => {
 
   return (
     <>
-      <ScrollViewContainer>
+      <ScrollViewContainer isInDarkMode={state.isDarkMode}>
         <ContainerBanner>
           <Banner />
         </ContainerBanner>
