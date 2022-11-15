@@ -16,7 +16,7 @@ const Banner = () => {
   const [animeBanner, setAnimeBanner] = useState<AnimeDetail>();
   const navigation = useNavigation();
   useEffect(() => {
-    const id = Math.floor(Math.random() * 1000);
+    const id = Math.floor(Math.random() * 500);
     const animes = getAnimeBanner(id);
     animes.then(res => {
       setAnimeBanner(res);

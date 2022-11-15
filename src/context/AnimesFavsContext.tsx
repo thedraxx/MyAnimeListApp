@@ -2,7 +2,7 @@ import React, {createContext} from 'react';
 import {Data} from '../interfaces/AnimeDetail';
 import {useReducer} from 'react';
 import {AnimeFavsReducer} from './AnimesFavsReducer';
-import {Datum} from '../interfaces/AnimesInterfaces';
+import {Datum} from '../interfaces/AnimesTops';
 
 // Definir como luce, que informacion tendra
 export interface animeFavsState {

@@ -1,7 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {TouchableOpacity} from 'react-native';
-import {Datum} from '../../interfaces/AnimesInterfaces';
+import {Datum} from '../../interfaces/AnimesTops';
 import {CardCustom, ContainerImage} from './Style';
 
 export interface Props {

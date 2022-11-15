@@ -2,11 +2,7 @@ import React from 'react';
 import {View, Text} from 'react-native';
 
 const Search = () => {
-  return (
-    <View>
-      <Text>xD</Text>
-    </View>
-  );
+  return <View />;
 };
 
 export default Search;

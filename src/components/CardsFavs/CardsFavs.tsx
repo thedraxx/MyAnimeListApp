@@ -2,7 +2,7 @@ import React from 'react';
 import {TouchableOpacity} from 'react-native';
 import {CardCustom} from './Style';
 import {useNavigation} from '@react-navigation/native';
-import {Datum} from '../../interfaces/AnimesInterfaces';
+import {Datum} from '../../interfaces/AnimesTops';
 
 interface Props {
   animes: Datum;
