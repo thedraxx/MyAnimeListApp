@@ -25,7 +25,6 @@ import {callGetColors} from '../../helpers/callGetColors';
 interface Props {
   animeDetails: Data;
 }
-
 interface ImageColors {
   primary: string;
   secondary: string;

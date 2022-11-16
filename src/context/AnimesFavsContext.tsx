@@ -1,4 +1,4 @@
-import React, {createContext, useEffect, useState} from 'react';
+import React, {createContext} from 'react';
 import {Data} from '../interfaces/AnimeDetail';
 import {useReducer} from 'react';
 import {AnimeFavsReducer} from './AnimesFavsReducer';
@@ -31,22 +31,18 @@ export const AnimeFavsProvider = ({children}: any) => {
     AnimeFavsReducer,
     animeFavsInitialState,
   );
-  const [animeFavorites, setAnimeFavorites] = useState([]);
 
   const addAnimeFav = (anime: Data) => {
     dispatch({type: 'addAnimeFav', payload: anime});
-
-    const isMounted = false;
-
-    if (animeFavorites.length !== 0) {
-      const newArrayFavs = [...animeFavorites, anime];
-      setAnimeFavorites(newArrayFavs);
-      AsyncStorage.setItem('animeFavs', JSON.stringify(newArrayFavs));
-    } else if (animeFavorites.length === 0) {
-      const newAnimeFavs = [...animeFavsState.animeFavsState, anime];
-      setAnimeFavorites(newAnimeFavs);
-      AsyncStorage.setItem('animeFavs', JSON.stringify(newAnimeFavs));
-    }
+    AsyncStorage.getItem('animeFavs').then((value: any) => {
+      if (value) {
+        const animes = JSON.parse(value);
+        const newArrayFavs = [...animes, anime];
+        AsyncStorage.setItem('animeFavs', JSON.stringify(newArrayFavs));
+      } else {
+        AsyncStorage.setItem('animeFavs', JSON.stringify([anime]));
+      }
+    });
   };
 
   const removeAnimeFav = (anime: Data) => {
