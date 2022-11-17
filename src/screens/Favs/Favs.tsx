@@ -16,7 +16,6 @@ const Favs = () => {
   const getFavs = async () => {
     setIsRefresing(true);
     const favs = await AsyncStorage.getItem('animeFavs');
-    console.log(favs);
     if (favs) {
       setAnimeFavs(JSON.parse(favs));
       setIsRefresing(false);
@@ -27,7 +26,7 @@ const Favs = () => {
 
   return (
     <ContainerFavs isInDarkMode={isInDarkMode}>
-      {!animeFavs ? (
+      {!animeFavs || animeFavs.length === 0 ? (
         <ScrollView
           refreshControl={
             <RefreshControl

@@ -16,7 +16,6 @@ const Detail = ({route}: Props) => {
   const {...state} = useContext(ToggleContext);
 
   const isInDarkMode = state.isDarkMode ? '#000' : '#fff';
-  console.log(isInDarkMode);
 
   const {mal_id} = route.params;
   useEffect(() => {

@@ -4,18 +4,18 @@ import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import {AnimeFavsContext} from '../../context/AnimesFavsContext';
 import {Data} from '../../interfaces/AnimeDetail';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
 interface Props {
   animeDetails: Data;
 }
 
 const AddFabButton = ({animeDetails}: Props) => {
-  const {addAnimeFav} = useContext(AnimeFavsContext);
+  const {addAnimeFav, removeAnimeFav, isActive} = useContext(AnimeFavsContext);
   const [isFavorite, setIsFavorite] = useState<string>('heart-o');
 
   useEffect(() => {
+    console.log('useEffect');
     verifyIfIsFav();
-  }, [animeDetails]);
+  }, [isActive]);
 
   const verifyIfIsFav = async () => {
     const animeFavs = await AsyncStorage.getItem('animeFavs');
@@ -34,9 +34,15 @@ const AddFabButton = ({animeDetails}: Props) => {
 
   return (
     <ContainerButtonFab>
-      <TouchableButton onPress={() => addAnimeFav(animeDetails)}>
-        <Icon name={isFavorite} size={30} color="#ffffff" />
-      </TouchableButton>
+      {isFavorite === 'heart-o' ? (
+        <TouchableButton onPress={() => addAnimeFav(animeDetails)}>
+          <Icon name={isFavorite} size={30} color="#fff" />
+        </TouchableButton>
+      ) : (
+        <TouchableButton onPress={() => removeAnimeFav(animeDetails)}>
+          <Icon name={isFavorite} size={30} color="#fff" />
+        </TouchableButton>
+      )}
     </ContainerButtonFab>
   );
 };
