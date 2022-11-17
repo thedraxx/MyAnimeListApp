@@ -2,6 +2,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {useContext, useState} from 'react';
 import {FlatList, RefreshControl, ScrollView} from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import CardsFavs from '../../components/CardsFavs/CardsFavs';
 import {ToggleContext} from '../../context/toggleContext';
 import {Datum} from '../../interfaces/AnimesTops';
@@ -11,6 +12,7 @@ const Favs = () => {
   const [animeFavs, setAnimeFavs] = useState<Datum[]>();
   const [isRefresing, setIsRefresing] = useState(false);
   const {...state} = useContext(ToggleContext);
+  const {top} = useSafeAreaInsets();
   const isInDarkMode = state.isDarkMode;
 
   const getFavs = async () => {
@@ -25,7 +27,7 @@ const Favs = () => {
   };
 
   return (
-    <ContainerFavs isInDarkMode={isInDarkMode}>
+    <ContainerFavs isInDarkMode={isInDarkMode} top={top}>
       {!animeFavs || animeFavs.length === 0 ? (
         <ScrollView
           refreshControl={
@@ -35,8 +37,8 @@ const Favs = () => {
               onRefresh={() => getFavs()}
             />
           }>
-          <ContainerNoFavs>
-            <TextNoFavs style={{color: isInDarkMode ? 'white' : 'black'}}>
+          <ContainerNoFavs isInDarkMode={isInDarkMode}>
+            <TextNoFavs isInDarkMode={isInDarkMode}>
               No favorites! Swipe down to refresh! (˵ •̀ ᴗ - ˵ ) ✧
             </TextNoFavs>
           </ContainerNoFavs>

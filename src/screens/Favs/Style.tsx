@@ -6,6 +6,7 @@ export const ContainerFavs = styled.View`
     isInDarkMode: string;
     state: {isDarkMode: string};
   }) => (props.isInDarkMode ? '#181818' : '#fff')};
+  margin-top: ${(props: {top: number}) => props.top}px;
 `;
 
 export const ContainerNoFavs = styled.View`
@@ -22,5 +23,6 @@ export const ContainerNoFavs = styled.View`
 export const TextNoFavs = styled.Text`
   font-size: 16px;
   color: ${(props: {isInDarkMode: string; state: {isDarkMode: string}}) =>
-    props.isInDarkMode ? '#181818' : '#fff'};
+    props.isInDarkMode ? '#fff' : '#191919'};
+  flex: 1;
 `;

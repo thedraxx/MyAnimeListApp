@@ -1,6 +1,7 @@
 import {createContext, useReducer} from 'react';
 import {toggleReducer, ToggleState} from './toggleReducer';
 import React from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface ToggleContextProps {
   toggleTheme: () => void;
@@ -18,6 +19,7 @@ export const ToggleProvider = ({children}: any) => {
 
   const toggleTheme = () => {
     dispatch({type: 'toggle'});
+    AsyncStorage.setItem('isDarkMode', JSON.stringify(state.isDarkMode));
   };
 
   return (

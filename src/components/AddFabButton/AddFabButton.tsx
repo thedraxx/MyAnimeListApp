@@ -15,7 +15,7 @@ const AddFabButton = ({animeDetails}: Props) => {
   useEffect(() => {
     console.log('useEffect');
     verifyIfIsFav();
-  }, [isActive]);
+  }, [isActive, animeDetails]);
 
   const verifyIfIsFav = async () => {
     const animeFavs = await AsyncStorage.getItem('animeFavs');
