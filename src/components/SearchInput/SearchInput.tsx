@@ -1,22 +1,27 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {Container, TextBackground, TextInputCustom} from './Style';
 import Icon from 'react-native-vector-icons/Ionicons';
 import AnimeListSearch from '../AnimeListSearch/AnimeListSearch';
 import {useForm} from '../hooks/useForm';
+import {ToggleContext} from '../../context/toggleContext';
 
 const SearchInput = () => {
+  const {...state} = useContext(ToggleContext);
+  const [isFinishTyping, setIsFinishTyping] = useState(false);
   const {search, onChange} = useForm({
     search: '',
   });
 
-  const [isFinishTyping, setIsFinishTyping] = useState(false);
+  const isInDarkMode = state.isDarkMode ? '#f3f3f3' : '#000000';
 
   return (
     <>
-      <Container>
+      <Container isInDarkMode={state.isDarkMode}>
         <TextBackground>
           <TextInputCustom
+            isInDarkMode={state.isDarkMode}
             placeholder="Search Anime"
+            placeholderTextColor={isInDarkMode}
             autoCapitalize="none"
             autoCorect={false}
             value={search}

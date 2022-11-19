@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useContext, useEffect, useState} from 'react';
-import {FlatList, Text, View} from 'react-native';
+import {FlatList} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import CardsFavs from '../../components/CardsFavs/CardsFavs';
 import {ToggleContext} from '../../context/toggleContext';
@@ -39,16 +39,12 @@ const AnimeListSearch = ({search, isFinishTyping}: Props) => {
 
   return (
     <ContainerSearch isInDarkMode={isInDarkMode} top={top}>
-      {search.length > 0 && (
-        <>
-          <FlatList
-            data={animeSearch}
-            keyExtractor={item => item.mal_id.toString()}
-            numColumns={2}
-            renderItem={({item}) => <CardsFavs animes={item} />}
-          />
-        </>
-      )}
+      <FlatList
+        data={animeSearch}
+        keyExtractor={item => item.mal_id.toString()}
+        numColumns={2}
+        renderItem={({item}) => <CardsFavs animes={item} />}
+      />
     </ContainerSearch>
   );
 };

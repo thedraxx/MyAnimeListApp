@@ -2,8 +2,6 @@ import React, {useContext} from 'react';
 import SearchInput from '../../components/SearchInput/SearchInput';
 import {ContainerSearch} from './Style';
 import {ToggleContext} from '../../context/toggleContext';
-import {Text} from 'react-native';
-import AnimeListSearch from '../../components/AnimeListSearch/AnimeListSearch';
 
 const Search = () => {
   const {...state} = useContext(ToggleContext);
