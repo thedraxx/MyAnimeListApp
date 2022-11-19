@@ -12,21 +12,24 @@ const SearchInput = () => {
   const [isFinishTyping, setIsFinishTyping] = useState(false);
 
   return (
-    <Container>
-      <TextBackground>
-        <TextInputCustom
-          placeholder="Search Anime"
-          autoCapitalize="none"
-          autoCorect={false}
-          value={search}
-          onChangeText={(value: string) => onChange(value, 'search')}
-          onSubmitEditing={() => setIsFinishTyping(!isFinishTyping)}
-        />
-        <Icon name="search-outline" size={30} color="#373737" />
-      </TextBackground>
-
-      <AnimeListSearch search={search} isFinishTyping={isFinishTyping} />
-    </Container>
+    <>
+      <Container>
+        <TextBackground>
+          <TextInputCustom
+            placeholder="Search Anime"
+            autoCapitalize="none"
+            autoCorect={false}
+            value={search}
+            onChangeText={(value: string) => onChange(value, 'search')}
+            onSubmitEditing={() => setIsFinishTyping(!isFinishTyping)}
+          />
+          <Icon name="search-outline" size={30} color="#373737" />
+        </TextBackground>
+      </Container>
+      <>
+        <AnimeListSearch search={search} isFinishTyping={isFinishTyping} />
+      </>
+    </>
   );
 };
 
