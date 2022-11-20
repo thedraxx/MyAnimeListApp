@@ -5,23 +5,25 @@
 
 ## 📷 Screenshots
 
-HOME SCREEN:
-![Alt text](../../../../c:/Users/thedr/OneDrive/Desktop/MyAnimeList/Home.png)
+## HOME SCREEN:
 
-ANIME SCREEN:
-![Alt text](../../../../c:/Users/thedr/OneDrive/Desktop/MyAnimeList/carddetail.png)
+![Home](https://user-images.githubusercontent.com/55867157/202922554-bf3a9b4d-d304-4caf-b689-0662aa15fb03.png)
 
-SIMILAR ANIMES:
-![Alt text](../../../../c:/Users/thedr/OneDrive/Desktop/MyAnimeList/similaranimes.png)
+## ANIME SCREEN:
+![carddetail](https://user-images.githubusercontent.com/55867157/202922569-6929e40c-af03-495a-8f43-282199fe2827.png)
 
-SEARCH ANIME:
-![Alt text](../../../../c:/Users/thedr/OneDrive/Desktop/MyAnimeList/Search.png)
+## SIMILAR ANIMES:
+![similaranimes](https://user-images.githubusercontent.com/55867157/202922573-0cb9709c-8164-4a61-bcca-7dffc5cae863.png)
 
-ANIME SAVES: 
-![Alt text](../../../../c:/Users/thedr/OneDrive/Desktop/MyAnimeList/saves.png)
+## SEARCH ANIME:
+![Search](https://user-images.githubusercontent.com/55867157/202922581-5ccf0264-cb79-477c-add8-d9ccad635b3c.png)
+
+## ANIME SAVES: 
+![saves](https://user-images.githubusercontent.com/55867157/202922598-3b5e59bb-905b-48f1-882b-32445f136d62.png)
 
 ## 🎥 A little video of the app:
-[label](../../../../c:/Users/thedr/OneDrive/Desktop/2022-11-20%2015-05-15.mp4)
+
+https://user-images.githubusercontent.com/55867157/202923051-b5e670cf-2e9c-4e7c-85f9-eb5bed7942d7.mp4
 
 ## 🚀 Technologies
 
