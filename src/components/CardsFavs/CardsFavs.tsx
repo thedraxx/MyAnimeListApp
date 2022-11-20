@@ -3,9 +3,10 @@ import {TouchableOpacity} from 'react-native';
 import {CardCustom} from './Style';
 import {useNavigation} from '@react-navigation/native';
 import {Datum} from '../../interfaces/AnimesTops';
+import {DatumSearch} from '../../interfaces/AnimeSearch';
 
 interface Props {
-  animes: Datum;
+  animes: Datum | DatumSearch;
 }
 
 const CardsFavs = ({animes}: Props) => {

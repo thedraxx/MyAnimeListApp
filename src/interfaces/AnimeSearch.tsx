@@ -2,10 +2,10 @@
 
 export interface AnimeSearch {
   pagination: Pagination;
-  data: Datum[];
+  data: DatumSearch[];
 }
 
-export interface Datum {
+export interface DatumSearch {
   mal_id: number;
   url: string;
   images: {[key: string]: Image};
