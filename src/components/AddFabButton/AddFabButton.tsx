@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useContext, useEffect, useState} from 'react';
 import {ContainerButtonFab, TouchableButton} from './Style';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
@@ -13,7 +14,6 @@ const AddFabButton = ({animeDetails}: Props) => {
   const [isFavorite, setIsFavorite] = useState<string>('heart-o');
 
   useEffect(() => {
-    console.log('useEffect');
     verifyIfIsFav();
   }, [isActive, animeDetails]);
 
