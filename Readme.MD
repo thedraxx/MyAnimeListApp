@@ -93,6 +93,3 @@ npx react-native run-android
 - Twitter Francisco: [@thedraxxworld](https://twitter.com/ThedraxxWorld)
 - Github Francisco: [thedraxx](https://github.com/thedraxx)
 - LinkedIn Francisco: [Francisco Isaac Cerrano](https://www.linkedin.com/in/cerranofrancisco/)
-
-## 📝 licence
-Copyright © 2022.<br />
