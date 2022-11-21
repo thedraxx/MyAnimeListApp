@@ -14,7 +14,7 @@ const Tops = () => {
       animes.then(res => {
         setAnime(res);
       });
-    }, 2000);
+    }, 1500);
   }, []);
 
   return (

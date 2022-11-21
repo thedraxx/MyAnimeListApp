@@ -9,10 +9,12 @@ const PicksCustom = () => {
   const [anime, setAnime] = useState<Animes>();
 
   useEffect(() => {
-    const animes = getAnimes();
-    animes.then(res => {
-      setAnime(res);
-    });
+    setTimeout(() => {
+      const animes = getAnimes();
+      animes.then(res => {
+        setAnime(res);
+      });
+    }, 1000);
   }, []);
 
   return (
