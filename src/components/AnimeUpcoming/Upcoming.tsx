@@ -14,7 +14,7 @@ const Upcoming = () => {
       animes.then(res => {
         setAnime(res);
       });
-    }, 2000);
+    }, 2500);
   }, []);
 
   return (
