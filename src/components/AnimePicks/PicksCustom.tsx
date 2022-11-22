@@ -14,7 +14,7 @@ const PicksCustom = () => {
       animes.then(res => {
         setAnime(res);
       });
-    }, 1500);
+    }, 1800);
   }, []);
 
   return (
